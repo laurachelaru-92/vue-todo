@@ -9,8 +9,31 @@
     <title>Vue To-do</title>
 </head>
 <body>
-    <div id="app">
-        <h1>{{salute}}</h1>
+    <div id="app" class="container">
+        <div class="row mt-5">
+            <div id="greeting">
+                <h1>Hello, {{name}}!</h1>
+                <input v-model="name" placeholder="Enter your name">
+            </div>
+        </div>
+        <div class="row mt-5">
+            <h2 class="col-12">Your grocery list</h2>
+            <ul>
+                <li v-for="(item, index) in groceryList">
+                    <span>{{item.text}}</span>
+                    <span class="badge badge-danger">Delete</span>
+                    <span @click="clickToEdit(index)" class="badge badge-warning">Edit</span>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <input v-model="newItem" type="text" placeholder="Add new">
+            <span @click="addNew(newItem)" class="badge badge-primary">Add</span>
+        </div>
+        <div class="row">
+            <input v-model="textEdited" type="text" placeholder="Edit">
+            <span @click="confirmEdit(textEdited, indexToEdit)" class="badge badge-warning">Edit</span>
+        </div>
     </div>
     <script src="vue.js"></script>
 </body>
