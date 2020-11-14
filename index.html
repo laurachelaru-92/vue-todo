@@ -27,11 +27,11 @@
             </ul>
         </div>
         <div class="row">
-            <input v-model="newItem" type="text" placeholder="Add new">
+            <input v-model="newItem" @keyup.enter="addNew(newItem)" type="text" placeholder="Add new">
             <span @click="addNew(newItem)" class="badge badge-primary">Add</span>
         </div>
         <div class="row">
-            <input v-model="textEdited" type="text" placeholder="Edit">
+            <input v-model="textEdited" @keyup.enter="confirmEdit(textEdited, indexToEdit)" type="text" placeholder="Edit">
             <span @click="confirmEdit(textEdited, indexToEdit)" class="badge badge-warning">Edit</span>
         </div>
     </div>
